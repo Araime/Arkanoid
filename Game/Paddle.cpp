@@ -41,12 +41,12 @@ void Paddle::ClampPositionOnEdge(sf::Vector2f& Position)
 {
 	if (Position.x - mSize.x / 2 < 0.f)
 	{
-		mPosition.x = Position.x = mSize.x / 2;
+		Position.x = mSize.x / 2;
 	}
 
 	if (Position.x + mSize.x / 2 > static_cast<float>(SCREEN_WIDTH))
 	{
-		mPosition.x = Position.x = static_cast<float>(SCREEN_WIDTH) - mSize.x / 2;
+		Position.x = static_cast<float>(SCREEN_WIDTH) - mSize.x / 2;
 	}
 }
 
@@ -54,5 +54,4 @@ void Paddle::SetPaddlePosition(sf::Vector2f& newPosition)
 {
 	mPosition = newPosition;
 	mShape.setPosition(mPosition);
-	LOG("Position x: %f", mPosition.x);
 }
