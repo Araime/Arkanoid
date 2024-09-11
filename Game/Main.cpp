@@ -2,7 +2,6 @@
 #include <time.h>
 #include "GameSettings.h"
 #include "Game.h"
-#include "Core.h"
 
 void HandleWindowEvents(sf::RenderWindow& window)
 {
@@ -27,7 +26,7 @@ int main()
 	srand(static_cast<int>(time(nullptr)));
 
 	// init game window
-	sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), GAME_NAME);
+	sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), GAME_NAME);
 	window.setFramerateLimit(FPS);
 	window.setVerticalSyncEnabled(true);
 
@@ -36,7 +35,7 @@ int main()
 
 	// init game timer
 	sf::Clock gameTimer;
-	float deltaTime;
+	float deltaTime = 0.f;
 
 	while (window.isOpen())
 	{
@@ -45,10 +44,8 @@ int main()
 
 		HandleWindowEvents(window);
 
-		mGame.UpdateGame();
+		mGame.UpdateGame(deltaTime);
 		mGame.DrawGame(window);
-
-		LOG("Delta Time: %f", deltaTime);
 	}
 
 	return 0;

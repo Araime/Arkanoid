@@ -10,9 +10,9 @@ void Game::ClearGame()
 	delete mPaddle;
 }
 
-void Game::UpdateGame()
+void Game::UpdateGame(float deltaTime)
 {
-
+	mPaddle->Tick(deltaTime);
 }
 
 void Game::DrawGame(sf::RenderWindow& window)
