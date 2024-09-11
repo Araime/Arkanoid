@@ -1,6 +1,7 @@
 #include<SFML/Graphics.hpp>
 #include <time.h>
 #include "GameSettings.h"
+#include "Game.h"
 
 void HandleWindowEvents(sf::RenderWindow& window)
 {
@@ -29,9 +30,14 @@ int main()
     window.setFramerateLimit(FPS);
     window.setVerticalSyncEnabled(true);
 
+    // init game object
+    Game mGame;
+
     while (window.isOpen())
     {
         HandleWindowEvents(window);
+
+        mGame.DrawGame(window);
     }
 
     return 0;
