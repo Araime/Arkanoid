@@ -142,6 +142,7 @@
   <ItemGroup>
     <ClInclude Include="Game\Ball.h" />
     <ClInclude Include="Game\Brick.h" />
+    <ClInclude Include="Game\Core.h" />
     <ClInclude Include="Game\Game.h" />
     <ClInclude Include="Game\GameSettings.h" />
     <ClInclude Include="Game\Paddle.h" />
