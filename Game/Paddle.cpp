@@ -50,8 +50,8 @@ void Paddle::ClampPositionOnEdge(sf::Vector2f& Position)
 	}
 }
 
-void Paddle::SetPaddlePosition(sf::Vector2f& newPosition)
+void Paddle::SetPaddlePosition(sf::Vector2f& Position)
 {
-	mPosition = newPosition;
+	mPosition = Position;
 	mShape.setPosition(mPosition);
 }
