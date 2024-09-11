@@ -36,24 +36,19 @@ int main()
 
 	// init game timer
 	sf::Clock gameTimer;
-	float elapsedTime = gameTimer.getElapsedTime().asSeconds();
+	float deltaTime;
 
 	while (window.isOpen())
 	{
-		LOG("ElapsedTime: %f", elapsedTime);
-
 		// calculate the deltaTime
-		const float currentTime = gameTimer.getElapsedTime().asSeconds();
-		const float deltaTime = currentTime - elapsedTime;
-		elapsedTime = currentTime;
+		const float deltaTime = gameTimer.restart().asSeconds();
 
 		HandleWindowEvents(window);
 
 		mGame.UpdateGame();
 		mGame.DrawGame(window);
 
-		LOG("CurrentTime: %f", currentTime);
-		LOG("DeltaTime: %f", deltaTime);
+		LOG("Delta Time: %f", deltaTime);
 	}
 
 	return 0;
