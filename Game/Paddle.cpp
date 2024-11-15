@@ -26,15 +26,14 @@ void Paddle::HandleInput(float deltaTime)
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
 		newPosition = {mPosition.x -= mSpeed * deltaTime, mPosition.y};
-		ClampPositionOnEdge(newPosition);
-		UpdatePaddlePosition(newPosition);
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
 		newPosition = {mPosition.x += mSpeed * deltaTime, mPosition.y};
-		ClampPositionOnEdge(newPosition);
-		UpdatePaddlePosition(newPosition);
 	}
+
+	ClampPositionOnEdge(newPosition);
+	UpdatePaddlePosition(newPosition);
 }
 
 void Paddle::ClampPositionOnEdge(sf::Vector2f& Position)
