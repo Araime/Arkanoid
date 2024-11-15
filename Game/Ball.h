@@ -14,7 +14,8 @@ public:
 
 private:
 	void ClampPositionOnEdge(sf::Vector2f& Position);
-	void UpdateBallPosition(sf::Vector2f& newPosition);
+	void Update(float deltaTime);
+	void UpdateBallPosition(sf::Vector2f& Position);
 
 	float mSpeed;
 	float mRadius;
