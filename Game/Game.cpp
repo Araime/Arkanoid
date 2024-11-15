@@ -15,6 +15,7 @@ void Game::UpdateGame(float deltaTime)
 {
 	mPaddle->Tick(deltaTime);
 	mBall->Tick(deltaTime);
+	mBall->CheckCollisionWithPaddle(mPaddle);
 }
 
 void Game::DrawGame(sf::RenderWindow& window)

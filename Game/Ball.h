@@ -2,6 +2,8 @@
 
 #include <SFML/Graphics.hpp>
 
+class Paddle;
+
 class Ball
 {
 public:
@@ -11,6 +13,7 @@ public:
 	sf::Vector2f GetPosition() const { return mPosition; }
 	void SetPosition(sf::Vector2f Position) { mPosition = Position; }
 	sf::CircleShape GetShape() const { return mShape; }
+	void CheckCollisionWithPaddle(Paddle* Paddle);
 
 private:
 	void Update(float deltaTime);
