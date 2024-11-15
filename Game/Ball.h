@@ -13,8 +13,13 @@ public:
 	sf::CircleShape GetShape() const { return mShape; }
 
 private:
+	void ClampPositionOnEdge(sf::Vector2f& Position);
+	void UpdateBallPosition(sf::Vector2f& newPosition);
+
 	float mSpeed;
 	float mRadius;
+	bool mFlyingUp;
+	bool mFlyingRight;
 	sf::CircleShape mShape;
 	sf::Vector2f mPosition;
 };

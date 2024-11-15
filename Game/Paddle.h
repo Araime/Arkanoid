@@ -15,7 +15,7 @@ public:
 private:
 	void HandleInput(float deltaTime);
 	void ClampPositionOnEdge(sf::Vector2f& Position);
-	void SetPaddlePosition(sf::Vector2f& newPosition);
+	void UpdatePaddlePosition(sf::Vector2f& newPosition);
 
 	float mSpeed;
 	sf::RectangleShape mShape;

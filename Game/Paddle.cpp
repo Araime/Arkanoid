@@ -27,13 +27,13 @@ void Paddle::HandleInput(float deltaTime)
 	{
 		newPosition = {mPosition.x -= mSpeed * deltaTime, mPosition.y};
 		ClampPositionOnEdge(newPosition);
-		SetPaddlePosition(newPosition);
+		UpdatePaddlePosition(newPosition);
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
 		newPosition = {mPosition.x += mSpeed * deltaTime, mPosition.y};
 		ClampPositionOnEdge(newPosition);
-		SetPaddlePosition(newPosition);
+		UpdatePaddlePosition(newPosition);
 	}
 }
 
@@ -50,7 +50,7 @@ void Paddle::ClampPositionOnEdge(sf::Vector2f& Position)
 	}
 }
 
-void Paddle::SetPaddlePosition(sf::Vector2f& Position)
+void Paddle::UpdatePaddlePosition(sf::Vector2f& Position)
 {
 	mPosition = Position;
 	mShape.setPosition(mPosition);
