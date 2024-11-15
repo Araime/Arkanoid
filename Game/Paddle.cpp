@@ -31,6 +31,10 @@ void Paddle::HandleInput(float deltaTime)
 	{
 		newPosition = {mPosition.x += mSpeed * deltaTime, mPosition.y};
 	}
+	else
+	{
+		newPosition = {mPosition.x, mPosition.y};
+	}
 
 	ClampPositionOnEdge(newPosition);
 	UpdatePaddlePosition(newPosition);

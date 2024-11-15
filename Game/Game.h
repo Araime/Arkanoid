@@ -13,5 +13,5 @@ public:
 	void DrawGame(sf::RenderWindow& window);
 
 	Paddle* mPaddle = new Paddle({400.f, 700.f});
-	Ball* mBall = new Ball({450.f, 600.f});
+	Ball* mBall = new Ball({400.f, 600.f});
 };

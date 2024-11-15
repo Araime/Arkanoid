@@ -13,8 +13,8 @@ public:
 	sf::CircleShape GetShape() const { return mShape; }
 
 private:
-	void ClampPositionOnEdge(sf::Vector2f& Position);
 	void Update(float deltaTime);
+	void ClampPositionOnEdge(sf::Vector2f& Position);
 	void UpdateBallPosition(sf::Vector2f& Position);
 
 	float mSpeed;

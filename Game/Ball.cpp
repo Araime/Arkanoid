@@ -1,5 +1,6 @@
 #include "Ball.h"
 #include "Core.h"
+#include "GameSettings.h"
 
 Ball::Ball(sf::Vector2f Position)
 	: mSpeed(250.f),
@@ -22,34 +23,63 @@ void Ball::Tick(float deltaTime)
 	Update(deltaTime);
 }
 
-void Ball::ClampPositionOnEdge(sf::Vector2f& Position)
-{
-
-}
-
 void Ball::Update(float deltaTime)
 {
 	sf::Vector2f newPosition;
 
+	// Check if the ball is flying up
 	if (mFlyingUp)
 	{
 		newPosition = {mPosition.x, mPosition.y -= mSpeed * deltaTime};
 	}
-	else
+	else if (!mFlyingUp)
 	{
 		newPosition = {mPosition.x, mPosition.y += mSpeed * deltaTime};
 	}
+	else
+	{
+		newPosition = {mPosition.x, mPosition.y};
+	}
 
+	// Check if the ball is flying right
 	if (mFlyingRight)
 	{
 		newPosition = {mPosition.x += mSpeed * deltaTime, mPosition.y};
 	}
-	else
+	else if (!mFlyingRight)
 	{
 		newPosition = {mPosition.x -= mSpeed * deltaTime, mPosition.y};
 	}
+	else
+	{
+		newPosition = {mPosition.x, mPosition.y};
+	}
 
+	ClampPositionOnEdge(newPosition);
 	UpdateBallPosition(newPosition);
+}
+
+void Ball::ClampPositionOnEdge(sf::Vector2f& Position)
+{
+	// Check the collision of the ball at the x coordinate
+	if (mPosition.x + mRadius >= SCREEN_WIDTH)
+	{
+		mFlyingRight = false;
+	}
+	else if (mPosition.x - mRadius <= 0)
+	{
+		mFlyingRight = true;
+	}
+
+	// Check the collision of the ball at the y coordinate
+	if (mPosition.y - mRadius <= 0)
+	{
+		mFlyingUp = false;
+	}
+	else if (mPosition.y + mRadius >= SCREEN_HEIGHT)
+	{
+		mFlyingUp = true;
+	}
 }
 
 void Ball::UpdateBallPosition(sf::Vector2f& Position)
